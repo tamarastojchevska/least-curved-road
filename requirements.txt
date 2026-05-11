@@ -1,0 +1,8 @@
+networkx
+osmnx
+requests
+scipy
+scikit-learn
+rtree
+shapely
+flask
