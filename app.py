@@ -1,10 +1,10 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, json
 
 from routing import calculate_route
 
 app = Flask(__name__)
 
-@app.route('/api/route', methods=['GET'])
+@app.route('/api/route', methods=['POST'])
 def get_route():
     data = request.get_json(force=True)
 
@@ -16,7 +16,7 @@ def get_route():
 
     result = calculate_route(origin_lat, origin_lon, dest_lat, dest_lon, mode)
 
-    return jsonify(result)
+    return jsonify(json.loads(result))
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)
